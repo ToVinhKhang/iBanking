@@ -1,0 +1,105 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>iBanking App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{{ url_for('static', filename='favicon.png')}}"
+        />
+        <style>
+            body {
+                background-color: #007a9f;
+            }
+            .background {
+                margin-top: 50px;
+                background-color: #f1f1f1;
+                margin-bottom: 50px;
+                border-radius: 10px;
+                padding-top: 1rem;
+            }
+            p {
+                padding: 60px;
+                font-size: 50px;
+                text-align: center;
+            }
+            #logout {
+                display: block;
+                width: 125px;
+                margin-left: auto;
+            }
+            img {
+                width: 180px;
+                height: 180px;
+                position: absolute;
+                margin: auto;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+            .counterCell:before {
+                content: counter(tableCount);
+                counter-increment: tableCount;
+            }
+            tbody tr:hover {
+                background-color: #007a9f;
+                color: white;
+            }
+            table {
+                counter-reset: tableCount;
+            }
+            .scores {
+                color: red;
+                font-weight: bold;
+            }
+            .confirmBtn {
+                margin-bottom: 50px;
+            }
+            .checkbox {
+                width: 20px;
+                height: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="background container">
+            <a id="logout" href="/logout" class="btn btn-warning">Log out</a>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <br />
+                        <form action="/confirm" method="POST">
+                            <h3 class="mb-4">Confirm Payment</h3>
+                            <div class="form-group">
+                                <label for="otp">OTP:</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="otp"
+                                    name="otp"
+                                />
+                            </div>
+
+                            <!-- Button Confirm -->
+                            <div class="form-group">
+                                <button class="confirmBtn btn btn-danger">
+                                    Confirm
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

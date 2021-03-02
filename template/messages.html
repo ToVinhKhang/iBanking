@@ -1,0 +1,67 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>iBanking App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{{ url_for('static', filename='favicon.png')}}"
+        />
+        <style>
+            body {
+                background-color: #007a9f;
+            }
+            .background {
+                margin-top: 50px;
+                background-color: #f1f1f1;
+                height: 600px;
+                border-radius: 10px;
+            }
+            p {
+                padding: 60px;
+                font-size: 50px;
+                text-align: center;
+            }
+            a {
+                margin: 20px;
+            }
+            img {
+                width: 180px;
+                height: 180px;
+                position: absolute;
+                margin: auto;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="background container">
+            {% if(g.messExpiredPayment) %}
+            <a href="/login" class="btn btn-dark">Back</a>
+            <p>{{ g.messExpiredPayment }}</p>
+            {% endif %} {% if(g.mess404NotFound) %}
+            <p>{{ g.mess404NotFound }}</p>
+            <img
+                src="https://cdn4.iconfinder.com/data/icons/artificial-intelligence-54/100/ai-09-512.png"
+            />
+            {% endif %} {% if(g.mess400BadRequest) %}
+            <p>{{ g.mess400BadRequest }}</p>
+            <img
+                src="https://cdn4.iconfinder.com/data/icons/artificial-intelligence-54/100/ai-09-512.png"
+            />
+            {% endif %}
+        </div>
+    </body>
+</html>

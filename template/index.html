@@ -1,0 +1,85 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>iBanking App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{{ url_for('static', filename='favicon.png')}}"
+        />
+        <style>
+            body {
+                background-color: #007a9f;
+            }
+            .background {
+                background-color: #f1f1f1;
+                height: 600px;
+                border-radius: 10px;
+                margin-top: 1.5rem;
+            }
+            .hh {
+                font-weight: bold;
+            }
+            .rounded {
+                width: 180px;
+                height: 180px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="background container">
+            <div class="hh">
+                <img
+                    class="rounded mx-auto d-block"
+                    src="https://lh3.googleusercontent.com/gOB-XyeDog6b1BDppv5HBP4FLE7CBoOKinY4f9MPcPAOvUgCnCA_FzgNVk3TwWQ-e6v2"
+                />
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <br />
+                        <form action="/login" method="POST">
+                            <div class="form-group">
+                                <label>Username:</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    placeholder="Enter your username..."
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label>Password:</label>
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="pass"
+                                    name="pass"
+                                    required
+                                    placeholder="Enter your password..."
+                                />
+                            </div>
+                            {% if errorMessage %}
+                            <p class="text-danger">{{ errorMessage }}</p>
+                            {% endif %}
+                            <div class="form-group">
+                                <button class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
